@@ -1,111 +1,82 @@
 import Errormsg from "./Errormsg";
 import {Shimmer} from "./Shimmer";
 import {Shimmercarousel} from "./Shimmer";
-import { RES_URL } from "../utils/config";
+// import { RES_URL } from "../utils/config";
 import Topcarousel from "./Topcarousel"
 import { useState, useEffect } from "react"
+import useOnline from "../utils/useOnline";
+import useResturantlist from "../utils/useResturantlist";
 import Card from "./Card";
 const Cardcontainer = () => {
-  const [title, setTitle] = useState("")
-  const [title2, setTitle2] = useState("")
-  const [restaurants, setResturants] = useState([]);
-  const [carousel, setCarousel] = useState([]);
+  const  resturantObj = useResturantlist();
+  const{title,title2,restaurantCollection,filtredCollection,updater,carousel,Errormsg}=resturantObj
   const [searchText, setsearchText] = useState("");
-  const [filtred, setfiltred] = useState([]);
   const [catagory, setActiveCatogery] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  
+  const isOnline = useOnline()
+console.log('resObj',resturantObj);
 
-  const getData = async () => {
-    try {
-      const data = await fetch(RES_URL);
-      const json = await data.json();
-      console.log(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info.costForTwo);
-      setResturants(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setfiltred(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setTitle(json.data.cards[0]?.card?.card.header.title)
-      setTitle2(json.data.cards[1]?.card?.card.header.title)
-      setCarousel(json.data.cards[0]?.card?.card?.imageGridCards?.info)
-    } catch (error) {
-      console.log("error", error);
-      setErrorMsg("there is problem to fetchdata from API")
-
-
-    }
-  }
   const handleSearch = (e) => {
     setsearchText(e.target.value)
   }
   const inputData = () => {
 
-    const filtredData = restaurants.filter(resItem => resItem?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
-    setfiltred(filtredData)
+    const filtredData = restaurantCollection.filter(resItem => resItem?.info?.name.toLowerCase().includes(searchText.toLowerCase()))
+    console.log("filtred",filtredData);
+    updater(filtredData)
     
   }
 
-  
 
   const handleRating = () => {
-    const filtredData = restaurants.filter(resItem =>
-      resItem?.info?.avgRating > 4.5
-    )
-    if (filtred !== restaurants && catagory === "Rating") {
+    const filtredData = restaurantCollection.filter(resItem =>resItem?.info?.avgRating > 4.5)
+    if (filtredCollection !== restaurantCollection && catagory === "Rating") {
       handleReset()
     }
     else {
-      setfiltred(filtredData)
+      updater(filtredData)
 
       setActiveCatogery("Rating")
-      console.log(filtredData); 
     }
   }
 
-
   const handleDelivery = () => {
-    const filtredData = restaurants.filter(resItem =>
-      resItem?.info?.sla?.deliveryTime < 30
-    )
-    if (filtred !== restaurants && catagory === "delivery") {
+    const filtredData = restaurantCollection.filter(resItem =>resItem?.info?.sla?.deliveryTime < 30)
+    if (filtredCollection !== restaurantCollection && catagory === "delivery") {
       handleReset()
     }
     else {
-      setfiltred(filtredData)
+      updater(filtredData)
       setActiveCatogery("delivery")
-      console.log(filtredData);
 
     }
   }
 
   const handleVeg = () => {
-    const filtredData = restaurants.filter(resItem =>
-      resItem?.info?.veg
+    const filtredData = restaurantCollection.filter(resItem =>resItem?.info?.veg
     )
-    if (filtred !== restaurants && catagory === "Veg") {
+    if (filtredCollection !== restaurantCollection && catagory === "Veg") {
       handleReset()
     }
     else {
-      setfiltred(filtredData)
+      updater(filtredData)
       setActiveCatogery("Veg")
-      console.log(filtredData);
+      // console.log(filtredData);
 
     }
   }
 
   const handleReset = () => {
-    setfiltred(restaurants)
+    updater(restaurantCollection)
     setActiveCatogery("")
   }
 
-
-  useEffect(
-    () => {
-      getData();
-      // console.log("use effect");
-    }, []
-  )
-
+  
+  console.log("online",isOnline);
+if (!isOnline){
+  return <Errormsg/>
+}
   return (
-    !errorMsg ?
+    // !errorMsg ?
       <>
         <div div className="container mt-3" >
           <div className="search d-flex justify-content-center ">
@@ -119,7 +90,7 @@ const Cardcontainer = () => {
         <div className="container px-5">
           <div className="mukta-medium mt-3">{title}</div>
           <div className="d-flex carOverflow">
-            {carousel.length !== 0 ?
+            { carousel.length !== 0 ?
               carousel.map((carData) => {
                 
                 return (
@@ -145,9 +116,9 @@ const Cardcontainer = () => {
           </div>
           <div className=" justify-content-center d-flex flex-wrap gap-4 mt-3">
             {
-              filtred.length !== 0 ?
+              filtredCollection.length !== 0 ?
 
-                filtred.map((card) => {
+                filtredCollection.map((card) => {
                   
                   return (
                     <Card
@@ -161,7 +132,7 @@ const Cardcontainer = () => {
         </div>
       </>
 
-      :<Errormsg/>
+      // :<Errormsg/>
      
 
 

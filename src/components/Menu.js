@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import {Shimmermenu} from "./Shimmer";
 import useMenulist from "../utils/useMenulist"
@@ -6,29 +5,9 @@ import {MENU_IMG_URL,MENU_OFFER_IMG,MENU_CAR_IMG}from "../utils/config"
 export const Menu = () => {
     const params = useParams();
     const { resId } = params
-    // const MENU_IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"
-    // // const menuUrl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
-    // const MENU_OFFER_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_28,h_28/"
-    // const MENU_CAR_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/"
+   
     const  menuList = useMenulist(resId);
     
-    // const [menuList, setMenuList] = useState([]);
-
-    // const getMenu = async () => {
-    //     try {
-    //         const data = await fetch(menuUrl)
-    //         const json = await data.json();
-    //         setMenuList(json?.data.cards)
-    //         // console.log("json data ", json?.data?.cards);
-    //     }
-    //     catch (error) {
-    //         console.log("error", error);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getMenu();
-    // })
     if (menuList.length === 0)
         return (<Shimmermenu />)
     else {

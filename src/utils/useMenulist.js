@@ -16,7 +16,7 @@ const useMenulist = (id)=>{
 
     useEffect(() => {
         getMenu();
-    })
+    },[])
     return menuList;
 }
 
