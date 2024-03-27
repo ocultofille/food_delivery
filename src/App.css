@@ -11,6 +11,30 @@
   margin: 10px;
 }
 
+.shrink-on-hover {
+ 
+ 
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(0.5px) translateZ(0);
+  /* -webkit-transition-duration: 0.1s; */
+  transition-duration: 0.1s;
+  /* -webkit-transition-property: transform; */
+  transition-property: transform;
+}
+.shrink-on-hover:hover, .shrink-on-hover:focus, .shrink-on-hover:active {
+  /* -webkit-transform: scale(0.96); */
+  transform: scale(0.96);
+}
+
+
+.grow { 
+  transition: all .2s ease-in-out; 
+  }
+
+  .grow:hover { 
+    transform: scale(1.1); 
+    }
+
 .star{
   padding-left: 3px ;
   padding-right: 4px;
@@ -64,6 +88,13 @@
   font-size: 25px;
 
 }
+.mukta-regular {
+  font-family: "Mukta", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 45px;
+
+}
 
 .kanit-bold {
   font-family: "Kanit", sans-serif;
@@ -113,7 +144,7 @@
 
 .roboto-thin {
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -182,7 +213,7 @@
 }
  .footer {
 
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     bottom: 0;
     left: 0;
@@ -197,3 +228,118 @@
   .errorIcon{
     height:150px
   }
+  .errorDetail{
+    line-height: 1px;
+  }
+  .menuBlock{
+    width:52%
+  }
+  .resName{
+    font-size: 1.42rem;
+    font-weight: 600;
+    color:#282c3f
+  }
+  
+  .cuisines{
+    font-size: 12px;
+  }
+  .rating{
+    border: 1px solid #e9e9eb;
+    box-shadow: 0 1px 5px #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+    max-width: 100px;
+    
+}
+.menuTitle{
+  color:#3e4152 ;
+  font-size:1.2rem;
+  font-weight:bold;
+  border-top: 10px solid #e9e9eb;
+  padding-top: 1.5rem;
+}
+
+.addBtn{
+  width:80%;
+  border-color:rgba(40,44,63,0.45);
+  margin-top:-30px;
+  box-shadow:0 3px 8px #e9e9eb
+}
+.addBtn:hover{
+  box-shadow:0 5px 10px #a8a8a8
+}
+
+.offerBanner{
+  width:200px
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bannerContainer{
+  
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 100%;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+
+}
+.shimmerEdit{
+  width:150px;
+  height: 20px;
+}
+
+
+.aboutHeader{
+  height:300px;
+  width:100%;
+  padding: 0px;
+  background-image:url("https://careers.swiggy.com/assets/img/banner3.jpg") ;
+  background-position-y: center;
+  word-spacing: 4px;
+  letter-spacing: 3px;
+}
+
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.aboutBtn{
+  width:auto;
+  font-weight: lighter;
+  font-size: 15px;
+  border:1px solid #FE5005;
+  color:#FE5005;
+  padding : 12px 25px
+}
+.headLink{
+  color:#3e4152
+}
+
+.aboutCard .aboutBtn {
+  transition: all 0.5s;
+}
+.aboutCard:hover,.headLink:hover{
+  transform:color(#FE5005); 
+  color:#FE5005
+}
+.aboutBtn:focus,.aboutBtn:hover {
+  color: #FFFFFF;
+  background-color:#FE5005;
+}
+
+.aboutData{
+ width: 360px;
+ margin-bottom: 4rem;
+}
