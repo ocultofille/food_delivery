@@ -94,7 +94,7 @@ export const Menu = () => {
                     {nestedData.map((nestedItems, indexNest) => {
                         // console.log("23",nestedItems?.card);
                         return (
-                            <div className="menuTitle kanit-bold" >
+                            <div className="menuTitle kanit-bold" style={isDarkMode?{color:"rgb(62,65,82)",borderBottom:"10px solid #e9e9eb"}:{color:"rgb(180,180,180)",borderBottom:"10px solid #3b3b3b"}} >
                                 <NestedMenu
                                     key={nestedItems?.card?.card?.title}
                                     {...nestedItems?.card?.card}

@@ -18,7 +18,7 @@ const Menuheader = ({name, cuisines, areaName, avgRating, sla, feeDetails, total
                     </div>
                     <div>
                         <div className={isDarkMode?" rounded-3 rating_light text-center d-flex flex-column mt-5 ":" rounded-3 rating_dark text-center d-flex flex-column mt-5"} height="50px">
-                            <div className="text-success  mukta-medium fw-bolder py-2 " style={isDarkMode?{ fontSize: "15px",borderBottom:"1px solid lightgrey" }:{ fontSize: "15px",borderBottom:"1px solid rgb(59,58,58)" }}><i className="bi bi-star-fill"></i> {avgRating}</div>
+                            <div className="  mukta-medium fw-bolder py-2 " style={isDarkMode?{ fontSize: "15px",borderBottom:"1px solid lightgrey",color:"#198754" }:{ fontSize: "15px",borderBottom:"1px solid rgb(59,58,58)", color:"rgb(254, 80, 5)"}}><i className="bi bi-star-fill"></i> {avgRating}</div>
                             <div className="text-secondary  mukta-medium fw-bolder py-2 " style={{ fontSize: "10px" }}>{totalRatingsString}</div>
                         </div>
                     </div>

@@ -1,6 +1,9 @@
+import { DarkModeContext } from '../utils/DarkModeContext';
+import { useContext } from "react";
 import NormalMenu from "./NormalMenu"
 import { useState } from "react";
 const NestedMenu = ({ title, categories,showList,toggleFunction }) => {
+    const { isDarkMode } = useContext(DarkModeContext);
     const [nestedIndex,setNestedIndex] = useState(0);
     const handleShow =(val) => {
         if(val===nestedIndex){
@@ -22,7 +25,7 @@ const NestedMenu = ({ title, categories,showList,toggleFunction }) => {
                showList&&categories.map((categorie,index) => {
                     // console.log('itemCardmmm',categorie);
                     return (
-                        <div className="kanit-bold  mt-1 fw-normal " style={{ color: "#3e4152", fontSize: "1.22rem" }}>
+                        <div className="kanit-bold  mt-1 fw-normal " style={isDarkMode?{ color: "#3e4152", fontSize: "1.22rem" }:{color:"rgb(180,180,180)",fontSize:"1.22rem"}}>
                             <NormalMenu
                                 key={categorie?.title}
                                 {...categorie}

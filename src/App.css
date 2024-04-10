@@ -93,7 +93,7 @@
 }
 .mukta-regular {
   font-family: "Mukta", sans-serif;
-  font-weight: 300;
+  /* font-weight: 300; */
   font-style: normal;
   font-size: 45px;
 
@@ -210,7 +210,7 @@
 .shine_dark {
   position: relative; 
   background: #3a3a3a;
-  background-size: 800px 200px; 
+  background-size: 800px 900px; 
   background-image: linear-gradient(to right, #3a3a3a 0%, #3f3f3f 10%, #4a4a4a 20%, #3f3f3f 30%, #3a3a3a 50%, #3a3a3a 100%);
   background-repeat: no-repeat;
   /* background-size: 800px 200px;  */
@@ -323,14 +323,29 @@
    padding: 1px 5px; 
    line-height: 2px
 }
-.addBtn{
+.addBtn_light{
   width:80%;
-  border-color:rgba(40,44,63,0.45);
+  border-color:rgba(158, 158, 158, 0.45);
   margin-top:-30px;
-  box-shadow:0 3px 8px #e9e9eb
+  box-shadow:0 2px 4px #e9e9eb;
+  font-weight: bold;
 }
-.addBtn:hover{
-  box-shadow:0 5px 10px #a8a8a8
+.addBtn_dark{
+  width:80%;
+  border-color:rgba(137, 137, 137, 0.45);
+  margin-top:-30px;
+  box-shadow:0 2px 4px #4f4f4f;
+  font-weight: bold;
+}
+.addBtn_light:hover{
+  box-shadow:0 5px 6px #d5d5d5;
+  border-color:rgba(158, 158, 158, 0.45);
+
+}
+
+.addBtn_dark:hover{
+  box-shadow:0 5px 6px #4d4d4ddc;
+  border-color:rgba(137, 137, 137, 0.45);
 }
 
 .offerBanner{
@@ -363,7 +378,7 @@
   height:300px;
   width:100%;
   padding: 0px;
-  background-image:url("https://careers.swiggy.com/assets/img/banner3.jpg") ;
+  /* background-image:url("https://careers.swiggy.com/assets/img/banner3.jpg") ; */
   background-position-y: center;
   word-spacing: 4px;
   letter-spacing: 3px;
@@ -396,7 +411,12 @@
 .aboutCard .aboutBtn {
   transition: all 0.5s;
 }
-.aboutCard:hover,.headLink_light:hover,.headLink_dark:hover{
+
+
+.aboutCard_dark{
+  color:#888484
+}
+.aboutCard:hover,.headLink_light:hover,.headLink_dark:hover,.aboutCard_dark:hover{
   transform:color(#FE5005); 
   color:#FE5005
 }

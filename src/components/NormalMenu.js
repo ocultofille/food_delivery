@@ -25,7 +25,7 @@ const NormalMenu = ({title,itemCards,showList, isNested,showNestedList ,toggleFu
                             </div>
                             <div className="d-flex ps-1 flex-column">
                                 <img className="rounded-3" style={{ backgroundColor: `hsl(${(Math.random() * 360) | 0}, 40%, 85%)`, width: "150px", height: "120px", objectFit: "cover" }} alt="img" src={itemCard?.card?.info.imageId ? MENU_IMG_URL + itemCard?.card?.info.imageId : "https://cdn-icons-png.freepik.com/512/1056/1056265.png"} />
-                                <button type="button" className="text-success bg-white fw-bold btn  btm-small mx-auto border addBtn ">ADD</button>
+                                <button type="button" className={isDarkMode?" btn  btm-small mx-auto  addBtn_light ":"btn  btm-small mx-auto  addBtn_dark "} style={isDarkMode?{background:"white",color:"#198754"}:{background:"rgb(49, 49, 49)",color:"rgb(254, 80, 5)"}}>ADD</button>
                             </div>
                         </div>
                     )
