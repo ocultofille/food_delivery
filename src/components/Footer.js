@@ -1,6 +1,9 @@
+import { DarkModeContext } from '../utils/DarkModeContext';
+import { useContext } from "react";
 const Footer = () => {
+    const { isDarkMode } = useContext(DarkModeContext);
     return (
-        <div className="containerFluid footer   text-light bg-dark" >
+        <div className={isDarkMode?"containerFluid footer   text-light":"containerFluid footer   text-light "}  style={isDarkMode?{background:"#212529"}:{background:"rgb(24,24,24)"}}>
             <div className=" container px-5  pt-1"  >
                <div className="footerData d-flex flex-row justify-content-center gap-5 " style={{fontSize:"30px",width:"100%"}}>
                     <i className="footerIcon grow bi bi-linkedin"></i>
