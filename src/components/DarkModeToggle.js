@@ -6,9 +6,9 @@ const DarkModeToggle = () => {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
-    <button onClick={toggleDarkMode}>
-      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-    </button>
+    <div   onClick={toggleDarkMode}>
+      {isDarkMode ? <i className="bi bi-moon-stars-fill headLink_light"></i> : <i className="bi bi-brightness-high-fill headLink_dark"></i>}
+    </div>
   );
 };
 

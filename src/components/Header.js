@@ -23,9 +23,9 @@ const Header = () => {
             <li className="nav-item">
               <Link className={isDarkMode?" headLink_light":"headLink_dark"} style={{textDecoration:"none"}} to="/contact">Contact</Link>
             </li>
-            <div>
+            <li  className="nav-item">
               <DarkModeToggle/>
-            </div>
+            </li>
           </ul>
           
         </div>
